@@ -1,0 +1,7 @@
+textarea {
+  height: 80%;
+}
+.renderer {
+  height: 80%;
+  overflow: auto;
+}
