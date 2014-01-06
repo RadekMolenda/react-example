@@ -12,56 +12,52 @@
   </head>
 
   <body>
-
     <div id="app">
       <div class="simpleMarkdownEditor row">
-        <div class="row">
-          <div class="off-canvas-wrap recentFiles">
-            <div class="inner-wrap">
-              <nav class="tab-bar">
-                <section class="left-small">
-                  <a class="left-off-canvas-toggle menu-icon"><span></span></a>
-                </section>
-                <section class="middle tab-bar-section">
-                  <!--TitleComponent-->
-                  <h1>Now Editing some markdown</h1>
-                </section>
-              </nav>
-              <aside class="left-off-canvas-menu">
-                <ul class="off-canvas-list">
-                  <!--RecentFilesComponent-->
-                  <!----RecentFileComponent-->
-                  <li><label>Recent Files</label></li>
-                  <!----RecentFileComponent-->
-                  <li><a href="#">First title</a></li>
-                </ul>
-              </aside>
-              <section class="main-section">
-                <div class="row">
-                  <!--EditorComponent-->
-                  <div class="editor large-6 columns">
-                    <textarea class="editor large-6.columns panel" placeholder="Write some **Markdown** here"></textarea>
-                  </div>
-                  <!--RendererComponent-->
-                  <div class="renderer large-6 columns panel"></div>
-                </div>
-
-                <div class="row">
-                  <div class="large-6 columns utils">
-                    <!--UtilButtonsComponent-->
-                    <ul class="small-block-grid-3">
-                       <!---NewButtonCompoment-->
-                      <li><a class="button small">New</a></li>
-                       <!---SaveButtonCompoment-->
-                      <li><a class="button small">Save</a></li>
-                       <!---DeleteButtonCompoment-->
-                      <li><a class="button alert small">Delete</a></li>
-                    </ul>
-                  </div>
-                </div>
+        <div class="off-canvas-wrap">
+          <div class="inner-wrap">
+            <nav class="tab-bar">
+              <section class="left-small">
+                <a class="left-off-canvas-toggle menu-icon"><span></span></a>
               </section>
-              <a class="exit-off-canvas"></a>
-            </div>
+              <section class="middle tab-bar-section">
+                <!--TitleComponent-->
+                <h1>Editting: new unsaved markdown</h1>
+              </section>
+            </nav>
+            <aside class="left-off-canvas-menu">
+              <ul class="off-canvas-list recentFiles">
+                <!--RecentFilesComponent-->
+                <li><label>Recent Files</label></li>
+                <!----RecentFileComponent-->
+                <li><a href="#">First title</a></li>
+              </ul>
+            </aside>
+            <section class="main-section">
+              <div class="row">
+                <!--EditorComponent-->
+                <div class="editor large-6 columns">
+                  <textarea class="editor large-6.columns panel" placeholder="Write some **Markdown** here"></textarea>
+                </div>
+                <!--RendererComponent-->
+                <div class="renderer large-6 columns panel"></div>
+              </div>
+
+              <div class="row">
+                <div class="large-6 columns utils">
+                  <!--UtilButtonsComponent-->
+                  <ul class="small-block-grid-3">
+                    <!---NewButtonCompoment-->
+                    <li><a class="button small">New</a></li>
+                    <!---SaveButtonCompoment-->
+                    <li><a class="button small">Save</a></li>
+                    <!---DeleteButtonCompoment-->
+                    <li><a class="button alert small">Delete</a></li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+            <a class="exit-off-canvas"></a>
           </div>
         </div>
       </div>
