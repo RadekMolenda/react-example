@@ -9,10 +9,45 @@ var App = React.createClass({
   },
   render: function () {
     return (
-      <div className="editors">
-        <Editor onEditorChange={this.handleEditorChange}/>
-        <Renderer data={this.state.data}/>
-      </div>
+          <div className="inner-wrap">
+            <nav className="tab-bar">
+              <section className="left-small">
+                <a className="left-off-canvas-toggle menu-icon"><span></span></a>
+              </section>
+              <section className="middle tab-bar-section">
+
+                <h1>Editting: new unsaved markdown</h1>
+              </section>
+            </nav>
+            <aside className="left-off-canvas-menu">
+              <ul className="off-canvas-list recentFiles">
+
+                <li><label>Recent Files</label></li>
+
+                <li><a href="#">First title</a></li>
+              </ul>
+            </aside>
+            <section className="main-section">
+              <div className="row">
+                <Editor onEditorChange={this.handleEditorChange}/>
+                <Renderer data={this.state.data}/>
+              </div>
+
+              <div className="row">
+                <div className="large-6 columns utils">
+                  <ul className="small-block-grid-3">
+
+                    <li><a className="button small">New</a></li>
+
+                    <li><a className="button small">Save</a></li>
+
+                    <li><a className="button alert small">Delete</a></li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+            <a className="exit-off-canvas"></a>
+          </div>
     );
   }
 });
@@ -46,5 +81,5 @@ var Renderer = React.createClass({
 });
 React.renderComponent(
   <App />,
-  document.getElementById("editPanels")
+  document.getElementById("app")
 );

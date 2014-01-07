@@ -12,56 +12,13 @@
   </head>
 
   <body>
-    <div id="app">
       <div class="simpleMarkdownEditor row">
-        <div class="off-canvas-wrap">
-          <div class="inner-wrap">
-            <nav class="tab-bar">
-              <section class="left-small">
-                <a class="left-off-canvas-toggle menu-icon"><span></span></a>
-              </section>
-              <section class="middle tab-bar-section">
-                <!--TitleComponent-->
-                <h1>Editting: new unsaved markdown</h1>
-              </section>
-            </nav>
-            <aside class="left-off-canvas-menu">
-              <ul class="off-canvas-list recentFiles">
-                <!--RecentFilesComponent-->
-                <li><label>Recent Files</label></li>
-                <!----RecentFileComponent-->
-                <li><a href="#">First title</a></li>
-              </ul>
-            </aside>
-            <section class="main-section">
-              <div class="row" id="editPanels">
-                <!--EditorComponent-->
-                <!--RendererComponent-->
-              </div>
-
-              <div class="row">
-                <div class="large-6 columns utils">
-                  <!--UtilButtonsComponent-->
-                  <ul class="small-block-grid-3">
-                    <!---NewButtonCompoment-->
-                    <li><a class="button small">New</a></li>
-                    <!---SaveButtonCompoment-->
-                    <li><a class="button small">Save</a></li>
-                    <!---DeleteButtonCompoment-->
-                    <li><a class="button alert small">Delete</a></li>
-                  </ul>
-                </div>
-              </div>
-            </section>
-            <a class="exit-off-canvas"></a>
-          </div>
+        <div class="off-canvas-wrap" id="app">
         </div>
       </div>
-    </div>
-  </div>
-  <script src="js/app.js"></script>
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/foundation/5.0.2/js/foundation.min.js"
-  type="text/javascript"></script>
-  <script>$(document).foundation();</script>
+    <script src="js/app.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/foundation/5.0.2/js/foundation.min.js"
+    type="text/javascript"></script>
+    <script>$(document).foundation();</script>
   </body>
 </html>
