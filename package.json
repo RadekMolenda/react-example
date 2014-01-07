@@ -1,0 +1,23 @@
+{
+  "name": "talk",
+  "version": "0.0.0",
+  "description": "react-example =============",
+  "main": "index.js",
+  "dependencies": {
+    "react-tools": "~0.8.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/RadekMolenda/react-example.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RadekMolenda/react-example/issues"
+  },
+  "homepage": "https://github.com/RadekMolenda/react-example"
+}
