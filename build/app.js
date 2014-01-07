@@ -1,14 +1,17 @@
 /** @jsx React.DOM */
 
 var App = React.createClass({
+  getInitialState: function () {
+    return { data: "" };
+  },
   handleEditorChange: function (data) {
-    console.log(data);
+    this.setState({data: data});
   },
   render: function () {
     return (
       <div className="editors">
         <Editor onEditorChange={this.handleEditorChange}/>
-        <Renderer data="Some fancy stuff here"/>
+        <Renderer data={this.state.data}/>
       </div>
     );
   }
@@ -32,9 +35,12 @@ var Editor = React.createClass({
 });
 
 var Renderer = React.createClass({
+  converter: new Showdown.converter(),
   render: function () {
+    var rawMarkup = this.converter.makeHtml(this.props.data);
     return (
-      <div className="renderer large-6 columns panel" >{this.props.data}</div>
+      <div className="renderer large-6 columns panel"
+      dangerouslySetInnerHTML={{__html: rawMarkup}}></div>
     );
   }
 });
