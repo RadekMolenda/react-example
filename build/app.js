@@ -39,6 +39,11 @@ var App = React.createClass({
                      action: "Save",
                      current: undefined } );
   },
+  handleRecentFileClick: function (data) {
+    return function () {
+      this.setState( { data: data, action: "Update", current: data } );
+    }.bind(this);
+  },
   render: function () {
     return (
           <div className="inner-wrap">
@@ -48,15 +53,18 @@ var App = React.createClass({
               </section>
               <section className="middle tab-bar-section">
                 <Title doc={this.state.current}
-                       saved={this.isSaved()}/>
+                       saved={this.isSaved}/>
               </section>
             </nav>
             <aside className="left-off-canvas-menu">
               <ul className="off-canvas-list recentFiles">
 
                 <li><label>Recent Files</label></li>
-
-                <li><a href="#">First title</a></li>
+                {_.map(documents(), function (doc) {
+                        return <RecentFile title={titleize(doc)}
+                                 onRecentFileClick={this.handleRecentFileClick(doc)}
+                    />;
+                }.bind(this))}
               </ul>
             </aside>
             <section className="main-section">
@@ -85,6 +93,17 @@ var App = React.createClass({
             </section>
             <a className="exit-off-canvas"></a>
           </div>
+    );
+  }
+});
+var RecentFile = React.createClass({
+  handleClick: function () {
+    this.props.onRecentFileClick();
+  },
+  render: function () {
+    return (
+        <li><a onClick={this.handleClick}>{this.props.title}</a></li>
+
     );
   }
 });
@@ -164,7 +183,7 @@ var DeleteButton = React.createClass({
 
 var Title = React.createClass({
   needsSaving: function () {
-    if(this.props.saved){
+    if(this.props.saved()){
       return "saved";
     } else {
       return "unsaved";
