@@ -39,7 +39,7 @@ var App = React.createClass({
 
                     <li><a className="button small">New</a></li>
 
-                    <li><a className="button small">Save</a></li>
+                    <SaveButton />
 
                     <li><a className="button alert small">Delete</a></li>
                   </ul>
@@ -79,6 +79,15 @@ var Renderer = React.createClass({
     );
   }
 });
+
+var SaveButton = React.createClass({
+  render: function () {
+    return (
+      <li><a className="button small">Save</a></li>
+    );
+  }
+});
+
 React.renderComponent(
   <App />,
   document.getElementById("app")
