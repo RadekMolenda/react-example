@@ -33,6 +33,12 @@ var App = React.createClass({
                      action: "Save",
                      current: undefined });
   },
+  handleDeleteButtonClick: function () {
+    documents.remove(this.state.current);
+    this.setState( { data: "",
+                     action: "Save",
+                     current: undefined } );
+  },
   render: function () {
     return (
           <div className="inner-wrap">
@@ -71,7 +77,8 @@ var App = React.createClass({
                       onUpdateButtonClick={this.handleUpdateButtonClick}
                       action={this.state.action}/>
 
-                    <li><a className="button alert small">Delete</a></li>
+                      <DeleteButton
+                        onDeleteButtonClick={this.handleDeleteButtonClick} />
                   </ul>
                 </div>
               </div>
@@ -140,6 +147,17 @@ var NewButton = React.createClass({
   render: function () {
     return (
       <li><a className="button small" onClick={this.handleClick}>New</a></li>
+    );
+  }
+});
+
+var DeleteButton = React.createClass({
+  handleClick: function () {
+    this.props.onDeleteButtonClick();
+  },
+  render: function () {
+    return (
+        <li><a className="button alert small" onClick={this.handleClick}>Delete</a></li>
     );
   }
 });
