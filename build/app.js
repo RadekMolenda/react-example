@@ -1,5 +1,12 @@
 /** @jsx React.DOM */
 
+function titleize(str) {
+  if(str) {
+    return str.substring(0, 15);
+  } else {
+    return "New Document";
+  }
+};
 var App = React.createClass({
   getInitialState: function () {
     return { data: "",
@@ -18,6 +25,9 @@ var App = React.createClass({
     documents.update(this.state.current, this.state.data);
     this.setState( { current: this.state.data } );
   },
+  isSaved: function () {
+    return _.isEqual(this.state.current, this.state.data);
+  },
   render: function () {
     return (
           <div className="inner-wrap">
@@ -26,8 +36,8 @@ var App = React.createClass({
                 <a className="left-off-canvas-toggle menu-icon"><span></span></a>
               </section>
               <section className="middle tab-bar-section">
-
-                <h1>Editting: new unsaved markdown</h1>
+                <Title doc={this.state.current}
+                       saved={this.isSaved()}/>
               </section>
             </nav>
             <aside className="left-off-canvas-menu">
@@ -116,6 +126,20 @@ var SaveButton = React.createClass({
   }
 });
 
+var Title = React.createClass({
+  needsSaving: function () {
+    if(this.props.saved){
+      return "saved";
+    } else {
+      return "unsaved";
+    }
+  },
+  render: function () {
+    return (
+        <h1>Editting: {titleize(this.props.doc)} ({this.needsSaving()})</h1>
+    );
+  }
+});
 React.renderComponent(
   <App />,
   document.getElementById("app")
