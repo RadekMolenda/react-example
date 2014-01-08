@@ -2,10 +2,21 @@
 
 var App = React.createClass({
   getInitialState: function () {
-    return { data: "" };
+    return { data: "",
+             action: "Save",
+             current: undefined };
   },
   handleEditorChange: function (data) {
-    this.setState({data: data});
+    this.setState( { data: data } );
+  },
+  handleSaveButtonClick: function () {
+    documents.add(this.state.data);
+    this.setState( { action: "Update",
+                     current: this.state.data } );
+  },
+  handleUpdateButtonClick: function () {
+    documents.update(this.state.current, this.state.data);
+    this.setState( { current: this.state.data } );
   },
   render: function () {
     return (
@@ -39,7 +50,10 @@ var App = React.createClass({
 
                     <li><a className="button small">New</a></li>
 
-                    <SaveButton />
+                    <SaveButton
+                      onSaveButtonClick={this.handleSaveButtonClick}
+                      onUpdateButtonClick={this.handleUpdateButtonClick}
+                      action={this.state.action}/>
 
                     <li><a className="button alert small">Delete</a></li>
                   </ul>
@@ -81,9 +95,23 @@ var Renderer = React.createClass({
 });
 
 var SaveButton = React.createClass({
+  actions: {
+    "Save": function () {
+      this.props.onSaveButtonClick();
+    },
+    "Update": function () {
+      this.props.onUpdateButtonClick();
+    }
+  },
+  handleClick: function () {
+    this.actions[this.props.action].bind(this)();
+  },
   render: function () {
     return (
-      <li><a className="button small">Save</a></li>
+      <li>
+        <a onClick={this.handleClick}
+           className="button small">{this.props.action}</a>
+      </li>
     );
   }
 });

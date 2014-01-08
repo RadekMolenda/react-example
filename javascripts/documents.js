@@ -6,7 +6,6 @@
           localStorage.setItem(db, JSON.stringify(this().concat(item)));
         },
         remove: function (item) {
-          console.log(this());
           var data = _.reject(this(),
                               function (elem) { return _.isEqual(elem,
                                                                  item);
