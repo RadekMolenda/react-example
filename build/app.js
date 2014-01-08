@@ -28,6 +28,11 @@ var App = React.createClass({
   isSaved: function () {
     return _.isEqual(this.state.current, this.state.data);
   },
+  handleNewButtonClick: function () {
+    this.setState( { data: "",
+                     action: "Save",
+                     current: undefined });
+  },
   render: function () {
     return (
           <div className="inner-wrap">
@@ -50,7 +55,7 @@ var App = React.createClass({
             </aside>
             <section className="main-section">
               <div className="row">
-                <Editor onEditorChange={this.handleEditorChange}/>
+                <Editor onEditorChange={this.handleEditorChange} data={this.state.data}/>
                 <Renderer data={this.state.data}/>
               </div>
 
@@ -58,7 +63,8 @@ var App = React.createClass({
                 <div className="large-6 columns utils">
                   <ul className="small-block-grid-3">
 
-                    <li><a className="button small">New</a></li>
+                    <NewButton
+                      onNewButtonClick={this.handleNewButtonClick} />
 
                     <SaveButton
                       onSaveButtonClick={this.handleSaveButtonClick}
@@ -87,7 +93,8 @@ var Editor = React.createClass({
           ref="editor"
           className="editor large-6.columns panel"
           placeholder="Write some **Markdown** here"
-          onChange={this.handleChange} />
+          onChange={this.handleChange}
+          value={this.props.data} />
       </div>
     );
   }
@@ -122,6 +129,17 @@ var SaveButton = React.createClass({
         <a onClick={this.handleClick}
            className="button small">{this.props.action}</a>
       </li>
+    );
+  }
+});
+
+var NewButton = React.createClass({
+  handleClick: function () {
+    this.props.onNewButtonClick();
+  },
+  render: function () {
+    return (
+      <li><a className="button small" onClick={this.handleClick}>New</a></li>
     );
   }
 });
