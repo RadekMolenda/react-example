@@ -8,6 +8,10 @@
    - (optional) [[http://nodejs.org/][node.js]] and npm
 
 ** Installation
-No installation needed. Simply open the index.html file in your
+You need to have node.js installed on your machine
+in your root directory run
+`npm install`
+`.bin/jsx --watch build/ js/`
+then simply open the index.html file in your
 favourtie webbrowser.
 
