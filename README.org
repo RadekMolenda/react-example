@@ -7,3 +7,7 @@
    - [[http://foundation.zurb.com/][Foundation]] - Bootstrap
    - (optional) [[http://nodejs.org/][node.js]] and npm
 
+** Installation
+No installation needed. Simply open the index.html file in your
+favourtie webbrowser.
+
