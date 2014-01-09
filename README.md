@@ -1,4 +1,0 @@
-react-example
-=============
-
-React example

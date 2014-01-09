@@ -1,0 +1,13 @@
+* react-example
+
+** Techonlogies used:
+   - [[http://facebook.github.io/react/index.html][React]] - UI javascript
+   - [[https://github.com/coreyti/showdown][Showdown]] - Markdown converter javascript
+   - [[http://underscorejs.org/][Underscore.js]] - utility-belt library for JavaScript
+   - [[http://foundation.zurb.com/][Foundation]] - Bootstrap
+   - (optional) [[http://nodejs.org/][node.js]] and npm
+
+** Installation
+No installation needed. Simply open the index.html file in your
+favourtie webbrowser.
+
